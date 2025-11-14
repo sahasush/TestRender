@@ -1,9 +1,5 @@
 
 
-# Production build
-dist/
-build/
-
 # Environment files (keep .env.example)
 .env
 .env.local

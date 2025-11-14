@@ -1,0 +1,18 @@
+# Docker Compose Override for Development
+# This file automatically extends docker-compose.yml when running in development
+
+services:
+  frontend-dev:
+    environment:
+      # Development-specific environment variables
+      - VITE_ENABLE_REACT_DEVTOOLS=true
+      - VITE_ENABLE_REDUX_DEVTOOLS=true
+      - VITE_LOG_LEVEL=debug
+      - VITE_SHOW_VERSION_INFO=true
+    volumes:
+      # Additional development mounts
+      - ./.env.development:/app/.env.development
+      - ./.env.local:/app/.env.local:ro
+    command: ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "5173"]
+    stdin_open: true
+    tty: true

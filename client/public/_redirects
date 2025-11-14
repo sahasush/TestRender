@@ -1,0 +1,17 @@
+# API routes should not be redirected
+/api/*  /api/:splat  200
+
+# Health check
+/health /health 200
+
+# SPA routes - redirect everything else to index.html
+/about      /index.html   200
+/about    /index.html   200
+/privacy    /index.html   200
+/terms      /index.html   200
+/login      /index.html   200
+/register   /index.html   200
+/chat       /index.html   200
+
+# Catch-all fallback
+/*          /index.html   200

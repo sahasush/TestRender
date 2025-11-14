@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1230px" height="1206px" viewBox="0 0 1200 400">
+  <defs>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0" style="stop-color:#f8f4ff;stop-opacity:1"/>
+      <stop offset="1" style="stop-color:#ffffff;stop-opacity:1"/>
+    </linearGradient>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#9b87f5"/>
+    </marker>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0.602582, -0.013317)">
+    <rect x="20" y="80" width="240" height="280" rx="16" fill="url(#cardGradient)" stroke="#e5d9ff" stroke-width="2"/>
+    <circle cx="140" cy="130" r="32" fill="#9b87f5" opacity="0.15"/>
+    <circle cx="140" cy="130" r="24" fill="#9b87f5" opacity="0.25"/>
+    <path d="M 130 120 L 130 140 L 150 140 L 150 120 Z" fill="none" stroke="#9b87f5" stroke-width="2" stroke-linecap="round"/>
+    <path d="M 133 123 L 147 123" stroke="#9b87f5" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M 133 127 L 147 127" stroke="#9b87f5" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M 133 131 L 142 131" stroke="#9b87f5" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="140" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#9b87f5" style="white-space: pre;">1</text>
+    <text x="140" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#2d2d2d" style="white-space: pre;">Share Your Story</text>
+    <text x="140" y="255" font-family="Arial, sans-serif" font-size="13" fill="#666" style="white-space: pre;" transform="matrix(0.956738, 0, 0.005068, 1, -68.474641, -20.055119)"><tspan x="140" dy="1em">​</tspan>      <tspan x="140" dy="0" style="font-size: 13px; word-spacing: 0px;">Tell us about your</tspan>      <tspan x="140" dy="18" style="font-size: 13px; word-spacing: 0px;">symptoms, health history,</tspan>      <tspan x="140" dy="18" style="font-size: 13px; word-spacing: 0px;">and what you're</tspan>      <tspan x="140" dy="18" style="font-size: 13px; word-spacing: 0px;">experiencing</tspan><tspan x="140" dy="1em">​</tspan>    </text>
+  </g>
+  <path d="M 260 220 L 310 220" fill="none" stroke="#9b87f5" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.4"/>
+  <g>
+    <rect x="320" y="80" width="240" height="280" rx="16" fill="url(#cardGradient)" stroke="#e5d9ff" stroke-width="2"/>
+    <circle cx="440" cy="130" r="32" fill="#9b87f5" opacity="0.15"/>
+    <circle cx="440" cy="130" r="24" fill="#9b87f5" opacity="0.25"/>
+    <circle cx="440" cy="130" r="12" fill="none" stroke="#9b87f5" stroke-width="2"/>
+    <path d="M 432 130 L 436 126 L 440 130 L 444 126 L 448 130" fill="none" stroke="#9b87f5" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="435" cy="128" r="1.5" fill="#9b87f5"/>
+    <circle cx="445" cy="128" r="1.5" fill="#9b87f5"/>
+    <text x="440" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#9b87f5" style="white-space: pre;">2</text>
+    <text x="440" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#2d2d2d" style="white-space: pre;">Get Personalized Insights</text>
+    <text x="440" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#666" style="white-space: pre;" transform="matrix(1, 0, 0, 1, 3.918448, -21.163744)"><tspan x="440" dy="1em">​</tspan>      <tspan x="440" dy="0">Our AI analyzes you</tspan><tspan x="440" dy="18">unique biology, lifestyle,</tspan>     <tspan x="440" dy="18">and patterns to explain</tspan><tspan x="440" dy="18">what's happening</tspan><tspan x="440" dy="1em">​</tspan></text>
+  </g>
+  <path d="M 560 220 L 610 220" fill="none" stroke="#9b87f5" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.4"/>
+  <g>
+    <rect x="620" y="80" width="240" height="280" rx="16" fill="url(#cardGradient)" stroke="#e5d9ff" stroke-width="2"/>
+    <circle cx="740" cy="130" r="32" fill="#9b87f5" opacity="0.15"/>
+    <circle cx="740" cy="130" r="24" fill="#9b87f5" opacity="0.25"/>
+    <rect x="730" y="120" width="20" height="20" rx="3" fill="none" stroke="#9b87f5" stroke-width="2"/>
+    <path d="M 733 130 L 737 134 L 747 124" fill="none" stroke="#9b87f5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="740" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#9b87f5" style="white-space: pre;">3</text>
+    <text x="740" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#2d2d2d" style="white-space: pre;">Take Informed Action</text>
+    <text x="740" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#666" style="white-space: pre;" transform="matrix(1, 0, 0, 1, 3.265928, -22.418719)"><tspan x="740" dy="1em">​</tspan>      <tspan x="740" dy="0">Receive evidence-based</tspan>  <tspan x="740" dy="18">recommendations</tspan><tspan x="740" dy="18">tailored to your body</tspan>      <tspan x="740" dy="18">and circumstances</tspan><tspan x="740" dy="1em">​</tspan>    </text>
+  </g>
+  <path d="M 860 220 L 910 220" fill="none" stroke="#9b87f5" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.4"/>
+  <g>
+    <rect x="920" y="80" width="240" height="280" rx="16" fill="url(#cardGradient)" stroke="#e5d9ff" stroke-width="2"/>
+    <circle cx="1040" cy="130" r="32" fill="#9b87f5" opacity="0.15"/>
+    <circle cx="1040" cy="130" r="24" fill="#9b87f5" opacity="0.25"/>
+    <path d="M 1030 135 L 1030 125 L 1035 130 L 1040 123 L 1045 128 L 1050 125 L 1050 135 Z" fill="none" stroke="#9b87f5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="1040" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#9b87f5" style="white-space: pre;">4</text>
+    <text x="1040" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#2d2d2d" style="white-space: pre;">Track Your Journey</text>
+    <text x="1040" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#666" style="white-space: pre;" transform="matrix(1, 0, 0, 1, 1.741163, -24.978859)"><tspan x="1040" dy="1em">​</tspan>      <tspan x="1040" dy="0">Monitor how</tspan>      <tspan x="1040" dy="18">interventions work for</tspan>      <tspan x="1040" dy="18">you and adjust as your</tspan>      <tspan x="1040" dy="18">body changes</tspan><tspan x="1040" dy="1em">​</tspan>    </text>
+  </g>
+  <path d="M 1039.95 360.523 C 1080.28 386.841 925.65 400 576.037 400 C 226.423 400 78.51 386.841 132.297 360.523" fill="none" stroke="#9b87f5" stroke-width="2" stroke-dasharray="5,5" opacity="0.3" marker-end="url(#arrowhead)" style=""/>
+  <text x="600" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-style="italic" fill="#9b87f5" opacity="0.6" style="white-space: pre;">Continuous personalization as you evolve</text>
+</svg>

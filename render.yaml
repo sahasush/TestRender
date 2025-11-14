@@ -1,0 +1,20 @@
+version: "1"
+projects:
+- name: My project
+  environments:
+  - name: Production
+    services:
+    - type: web
+      name: Eirvana
+      runtime: static
+      repo: https://github.com/Eirvana/WebFrontend
+      buildCommand: npm install; npm run build
+      staticPublishPath: dist
+      domains:
+      - eirvana.one
+      - www.eirvana.one
+      routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+      autoDeployTrigger: commit

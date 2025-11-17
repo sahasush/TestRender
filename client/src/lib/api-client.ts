@@ -18,6 +18,7 @@ class ApiClient {
 
   constructor() {
     this.baseURL = API_BASE_URL.replace(/\/$/, '');
+	console.log(`[DEBUG] ApiClient Base URL set to: ${this.baseURL}`);
     
     this.defaultHeaders = {
       'Content-Type': 'application/json',

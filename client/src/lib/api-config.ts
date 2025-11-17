@@ -1,7 +1,7 @@
 // API Configuration
 // This file centralizes API URL configuration for different environments
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:4000';
 
 // In development, if no API URL is set, default to relative URLs (same-origin)
 // In production, VITE_API_URL should be set to your production domain

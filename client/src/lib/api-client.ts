@@ -1,4 +1,10 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:4000';
+
+
+// 🟢 ADD THIS LOGGING
+if (!API_BASE_URL) {
+    console.error("CRITICAL ERROR: API_BASE_URL is not set. Requests will fail.");
+}
 
 export interface ApiResponse<T = any> {
   data: T;
@@ -19,7 +25,7 @@ class ApiClient {
     };
 
     // Add API key to headers if available (using lowercase x-api-key)
-    const apiKey = import.meta.env.VITE_API_KEY;
+    const apiKey = import.meta.env.VITE_PUBLIC_API_KEY;
     if (apiKey) {
       this.defaultHeaders['x-api-key'] = apiKey;
     }

@@ -68,20 +68,25 @@ class ApiClient {
     try {
       const response = await fetch(url, config);
 		let data: any = {};
-		
-		const isNoContent = response.status === 204;
-    //  const data = await response.json();
-
-		if (!isNoContent) {
+		if (response.status !== 204) {
           try {
-              // Attempt to parse JSON
+              // Attempt to parse JSON body
               data = await response.json();
           } catch (e) {
-              // Handle non-JSON or empty body (e.g., if server sent 200 with empty body)
-              console.warn(`Could not parse JSON for ${url}. Response status: ${response.status}`, e);
+              // This handles the 'SyntaxError: JSON.parse: unexpected end of data' 
+              // for cases where the server sends a 200 but an empty/invalid body.
+              console.warn(`[API] JSON parsing failed for ${url}. Status: ${response.status}`, e);
+              // If the status is OK (2xx), treat this as a successful operation with empty data.
+              if (response.ok) {
+                  data = { success: true, message: 'Operation successful, no content returned.' };
+              } else {
+                  // If it's an error status but no JSON, throw generic error
+                  throw new Error(`HTTP ${response.status} - No readable JSON error body.`);
+              }
           }
       }
-      
+		
+		
       if (!response.ok) {
         throw new Error(data.message || `HTTP ${response.status}`);
       }

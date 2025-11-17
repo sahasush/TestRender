@@ -7,7 +7,7 @@ import { logApiConfig } from "./lib/api-config";
 if (import.meta.env.DEV) {
   console.log('\n🔧 Frontend Environment:');
   console.log(`   Mode: ${import.meta.env.MODE}`);
-  console.log(`   API URL: ${import.meta.env.VITE_API_URL || 'http://localhost:4000'}`);
+  console.log(`   API URL: ${import.meta.env.VITE_API_BASE_URL || 'http://localhost:4000'}`);
   logApiConfig();
 }
 

@@ -67,7 +67,20 @@ class ApiClient {
 
     try {
       const response = await fetch(url, config);
-      const data = await response.json();
+		let data: any = {};
+		
+		const isNoContent = response.status === 204;
+    //  const data = await response.json();
+
+		if (!isNoContent) {
+          try {
+              // Attempt to parse JSON
+              data = await response.json();
+          } catch (e) {
+              // Handle non-JSON or empty body (e.g., if server sent 200 with empty body)
+              console.warn(`Could not parse JSON for ${url}. Response status: ${response.status}`, e);
+          }
+      }
       
       if (!response.ok) {
         throw new Error(data.message || `HTTP ${response.status}`);

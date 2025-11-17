@@ -8,6 +8,16 @@ import { Textarea } from "@/components/ui/textarea";
 import { apiClient } from "@/lib/api-client";
 import { useToast } from "@/hooks/use-toast";
 
+
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const API_KEY = import.meta.env.VITE_PUBLIC_API_KEY; 
+
+if (!API_BASE_URL || !API_KEY) {
+    console.error("Missing VITE_API_BASE_URL or VITE_PUBLIC_API_KEY in environment.");
+    // This is a safety measure; the app will likely not work without them.
+}
+
 export default function Waitlist() {
   const [formData, setFormData] = useState({
     name: "",
@@ -23,9 +33,30 @@ export default function Waitlist() {
     setIsSubmitting(true);
 
     try {
-      const response = await apiClient.post('/api/waitlist', formData);
+		
+	  if (!API_BASE_URL || !API_KEY) {
+      toast({
+          title: "Configuration Error",
+          description: "API URL or Key is missing. Check your environment variables.",
+          variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+	const fullUrl = `${API_BASE_URL}/api/waitlist`;
+	const res = await fetch(fullUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-API-KEY': API_KEY, // <--- Send the API Key required by securePublicEndpoint
+        },
+        body: JSON.stringify(formData),
+      });
+	  
+	  
+      const response = await res.json();
 
-      if (response.success) {
+      if (res.ok && response.success) {
         setIsSubmitted(true);
         toast({
           title: "Welcome to the Waitlist!",
@@ -34,7 +65,7 @@ export default function Waitlist() {
       } else {
         toast({
           title: "Submission Failed",
-          description: response.message || "Failed to join waitlist. Please try again.",
+          description: response.message || `API Error: ${res.status} ${res.statusText}`,
           variant: "destructive",
         });
       }

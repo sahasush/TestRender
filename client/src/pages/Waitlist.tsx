@@ -10,14 +10,6 @@ import { useToast } from "@/hooks/use-toast";
 
 
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-const API_KEY = import.meta.env.VITE_PUBLIC_API_KEY; 
-
-if (!API_BASE_URL || !API_KEY) {
-    console.error("Missing VITE_API_BASE_URL or VITE_PUBLIC_API_KEY in environment.");
-    // This is a safety measure; the app will likely not work without them.
-}
-
 export default function Waitlist() {
   const [formData, setFormData] = useState({
     name: "",
@@ -43,20 +35,13 @@ export default function Waitlist() {
       setIsSubmitting(false);
       return;
     }
-	const fullUrl = `${API_BASE_URL}/api/waitlist`;
-	const res = await fetch(fullUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-API-KEY': API_KEY, // <--- Send the API Key required by securePublicEndpoint
-        },
-        body: JSON.stringify(formData),
-      });
-	  
-	  
-      const response = await res.json();
+	//const fullUrl = `${API_BASE_URL}/api/waitlist`;
+	const response = await apiClient.post<{ success: boolean; message?: string }>(
+            '/api/waitlist', 
+            formData
+        );
 
-      if (res.ok && response.success) {
+      if ( response.success) {
         setIsSubmitted(true);
         toast({
           title: "Welcome to the Waitlist!",

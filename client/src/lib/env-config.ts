@@ -18,7 +18,7 @@ const parseNumber = (value: string | undefined, defaultValue: number): number =>
 export const envConfig = {
   // API Configuration
   api: {
-    url: import.meta.env.VITE_API_URL || 'http://localhost:3001',
+    url: import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001',
     timeout: parseNumber(import.meta.env.VITE_API_TIMEOUT, 10000),
     key: import.meta.env.VITE_API_KEY || '',
     version: import.meta.env.VITE_API_VERSION || 'v1',

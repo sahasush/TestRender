@@ -8,8 +8,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { apiClient } from "@/lib/api-client";
 import { useToast } from "@/hooks/use-toast";
 
-
-
 export default function Waitlist() {
   const [formData, setFormData] = useState({
     name: "",
@@ -25,23 +23,9 @@ export default function Waitlist() {
     setIsSubmitting(true);
 
     try {
-		
-	  if (!API_BASE_URL || !API_KEY) {
-      toast({
-          title: "Configuration Error",
-          description: "API URL or Key is missing. Check your environment variables.",
-          variant: "destructive",
-      });
-      setIsSubmitting(false);
-      return;
-    }
-	//const fullUrl = `${API_BASE_URL}/api/waitlist`;
-	const response = await apiClient.post<{ success: boolean; message?: string }>(
-            '/api/waitlist', 
-            formData
-        );
+      const response = await apiClient.post('/api/waitlist', formData);
 
-      if ( response.success) {
+      if (response.success) {
         setIsSubmitted(true);
         toast({
           title: "Welcome to the Waitlist!",
@@ -50,7 +34,7 @@ export default function Waitlist() {
       } else {
         toast({
           title: "Submission Failed",
-          description: response.message || `API Error: ${res.status} ${res.statusText}`,
+          description: response.message || "Failed to join waitlist. Please try again.",
           variant: "destructive",
         });
       }

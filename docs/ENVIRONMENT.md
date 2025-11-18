@@ -13,7 +13,6 @@ This project uses environment variables to configure different aspects of the ap
 
 ### API Configuration
 - `VITE_API_URL` - Backend API base URL
-
 - `VITE_API_TIMEOUT` - API request timeout in milliseconds
 
 ### Application Settings

@@ -1,14 +1,5 @@
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000';
 
-const API_KEY = import.meta.env.VITE_PUBLIC_API_KEY; // optional
-
-
-
-// 🟢 ADD THIS LOGGING
-if (!API_BASE_URL) {
-    console.error("CRITICAL ERROR: API_BASE_URL is not set. Requests will fail.");
-}
-
 export interface ApiResponse<T = any> {
   data: T;
   message?: string;
@@ -21,7 +12,6 @@ class ApiClient {
 
   constructor() {
     this.baseURL = API_BASE_URL.replace(/\/$/, '');
-	console.log(`[DEBUG] ApiClient Base URL set to: ${this.baseURL}`);
     
     this.defaultHeaders = {
       'Content-Type': 'application/json',
@@ -29,7 +19,7 @@ class ApiClient {
     };
 
     // Add API key to headers if available (using lowercase x-api-key)
-    const apiKey = import.meta.env.VITE_PUBLIC_API_KEY;
+    const apiKey = import.meta.env.VITE_API_KEY;
     if (apiKey) {
       this.defaultHeaders['x-api-key'] = apiKey;
     }
@@ -70,26 +60,8 @@ class ApiClient {
 
     try {
       const response = await fetch(url, config);
-		let data: any = {};
-		if (response.status !== 204) {
-          try {
-              // Attempt to parse JSON body
-              data = await response.json();
-          } catch (e) {
-              // This handles the 'SyntaxError: JSON.parse: unexpected end of data' 
-              // for cases where the server sends a 200 but an empty/invalid body.
-              console.warn(`[API] JSON parsing failed for ${url}. Status: ${response.status}`, e);
-              // If the status is OK (2xx), treat this as a successful operation with empty data.
-              if (response.ok) {
-                  data = { success: true, message: 'Operation successful, no content returned.' };
-              } else {
-                  // If it's an error status but no JSON, throw generic error
-                  throw new Error(`HTTP ${response.status} - No readable JSON error body.`);
-              }
-          }
-      }
-		
-		
+      const data = await response.json();
+      
       if (!response.ok) {
         throw new Error(data.message || `HTTP ${response.status}`);
       }
